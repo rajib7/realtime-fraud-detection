@@ -1,0 +1,17 @@
+server:
+    port: 8083
+
+spring:
+    application:
+        name: alert-service
+    data:
+        mongodb:
+            uri: ${MONGO_URL:mongodb://mongo:27017/fraudops}
+    kafka:
+        bootstrap-servers: ${KAFKA_BOOTSTRAP:kafka:9092}
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health, info, prometheus, metrics
