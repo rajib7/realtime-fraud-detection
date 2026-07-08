@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: dark;
+}
+
+html,
+body,
+#root {
+    background-color: #0a0c10;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "IBM Plex Sans",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        sans-serif;
+    color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mono,
+code,
+pre {
+    font-family:
+        "JetBrains Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+    :root {
+        --background: 222 24% 6%;
+        --foreground: 210 40% 98%;
+        --card: 222 20% 9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222 20% 9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 187 100% 50%;
+        --primary-foreground: 222 24% 6%;
+        --secondary: 220 15% 14%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 220 15% 14%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 220 15% 14%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 346 100% 60%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 220 15% 18%;
+        --input: 220 15% 18%;
+        --ring: 187 100% 50%;
+        --radius: 0.375rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0c10;
+}
+::-webkit-scrollbar-thumb {
+    background: #222630;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #333a4a;
+}
+
+/* Grid backdrop */
+.grid-backdrop {
+    background-image:
+        linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+}
+
+/* Flash effect for new rows */
+@keyframes rowflash {
+    0% {
+        background-color: rgba(0, 229, 255, 0.22);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+.row-flash {
+    animation: rowflash 1.2s ease-out;
+}
+
+/* Pulse dot for live indicator */
+@keyframes pulseDot {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+.live-dot {
+    animation: pulseDot 1.4s ease-in-out infinite;
+}
+
+/* Kafka particle animation on architecture arrows */
+@keyframes particleFlow {
+    from {
+        offset-distance: 0%;
+    }
+    to {
+        offset-distance: 100%;
+    }
+}
+
+.card-surface {
+    border: 1px solid #222630;
+    background: #11141a;
+    border-radius: 6px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    line-height: 1.4;
+}
